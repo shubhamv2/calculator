@@ -1,6 +1,10 @@
-const Button = ({btnText}) =>{
+import calContext from '../../context/calcContext'
+import styles from './Button.module.css'
+import { useContext } from 'react'
+const Button = ({btnText,data}) =>{
+    const {handleClick} = useContext(calContext)
     return(
-        <button>{btnText}</button>
+        <button data-value={data} onClick={handleClick} className={styles.button}>{btnText}</button>
     )
 }
 

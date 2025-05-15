@@ -1,0 +1,14 @@
+.cal-container{
+    border: 2px solid black;
+    width: 40vw;
+    padding: 2rem 3rem;
+    box-sizing: border-box;
+    background-color: #193651;
+    border-radius: 15px;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}

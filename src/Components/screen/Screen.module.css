@@ -1,0 +1,10 @@
+.screen{
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    padding: 1rem;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.265);
+    color: white;
+}

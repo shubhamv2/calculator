@@ -18,6 +18,11 @@ const  reducer = (state, action) =>{
         case 'IS_OPEN':
             return {...state, isOpen: action.value}
 
+        case 'SUM':
+            return {...state, screenText: action.value}
+        case "EVAL":
+            return {...state, screenText:action.value}
+
         default:
             return state
     }

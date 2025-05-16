@@ -3,7 +3,7 @@ import Button from './Components/button/Button'
 import Screen from './Components/screen/Screen'
 import { FiDelete } from "react-icons/fi";
 import calContext from './context/calcContext';
-import { useReducer, useRef, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 import reducer from './reducer/reducer';
 
 
@@ -18,11 +18,7 @@ const App = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const inputRef = useRef()
 
-  useEffect(() => {
-    inputRef.current.focus()
-  }, [])
   const btnArr = [{ label: 'AC', value: 'AC' },
   { label: '()', value: '()' },
   { label: '%', value: '%' },
@@ -84,7 +80,7 @@ const App = () => {
       } else {
         helperFunction('IS_OPEN', true);
       }
-      inputRef.current.focus();
+    
       return;
     }
 
@@ -112,23 +108,23 @@ const App = () => {
         if (!newArr[1]) return helperFunction('EVAL', eval(newArr[0] / 100))
         const percentage = (newArr[0] / newArr[1]) * 100
         helperFunction('EVAL', percentage.toString())
-        inputRef.current.focus()
+ 
         return
       }
       helperFunction('EVAL', eval(state.screenText).toString())
-      inputRef.current.focus()
+
       return;
     }
 
 
-    inputRef.current.focus()
+    
     helperFunction("UPDATE_TEXT", state.screenText + e.target.textContent)
 
   }
 
 
   return (
-    <calContext.Provider value={{ state, dispatch, handleOnChange, handleClick, inputRef }}>
+    <calContext.Provider value={{ state, dispatch, handleOnChange, handleClick }}>
       <div className='cal-container'>
         <div className="screen">
           <Screen />
